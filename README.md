@@ -37,7 +37,9 @@ Summarize data using groqapi
 
 SET SESSION group_concat_max_len = 1000000;
 
-2. Just click the Summarize Data Analysis button on product-list page to get summarize data.
+2. Update Your_API_Key with actual api_key in groqapi.php
+
+3. Just click the Summarize Data Analysis button on product-list page to get summarize data.
 
 --------------------End----------------------------
 
