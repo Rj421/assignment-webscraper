@@ -42,7 +42,7 @@ $jsonData = json_encode($postData);
 
 $headers = [
     "Content-Type: application/json",
-    "Authorization: Bearer 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",  
+    "Authorization: Bearer Your_API_Key",  
 ];
 
 $ch = curl_init($apiUrl);
