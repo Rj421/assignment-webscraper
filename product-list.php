@@ -30,7 +30,14 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <div class="container mt-5">
         <h2 class="text-center mb-4">Scraped Products Details</h2>
-        
+        <button id="summarizeData" class="btn btn-info mb-4">Summarize Data Analysis</button>
+
+        <div id="summaryContainer" class="d-none mb-4">
+            <div class="alert alert-info" id="summaryAlert">
+
+            </div>
+        </div>
+
         <table id="productsTable" class="table table-striped">
             <thead>
                 <tr>
@@ -63,6 +70,20 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <script>
         $(document).ready(function() {
             $('#productsTable').DataTable();
+                $('#summarizeData').click(function() {
+                    $.ajax({
+                        url: 'groqapi.php', 
+                        type: 'GET',
+                        success: function(response) {
+                            console.log(response);
+                            $('#summaryContainer').removeClass('d-none');
+                            $('#summaryAlert').html('<strong>Summary:</strong> ' + response);
+                        },
+                        error: function() {
+                            alert('Error generating summary');
+                        }
+                    });
+                });
         });
     </script>
 
